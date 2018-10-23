@@ -46,7 +46,11 @@ defmodule Orcasite.Mixfile do
       {:poison, "~> 3.1.0"}, # JSON parser, works with Absinthe out of the box
       {:logfmt, "~> 3.0"},
       {:geo_postgis, "~> 2.0"},
-      {:jason, "~> 1.1"}
+      {:jason, "~> 1.1"},
+      {:comeonin, "~> 4.0"},
+      {:argon2_elixir, "~> 1.2"},
+      {:absinthe_ecto, "~> 0.1.3"},
+      {:guardian, "~> 1.0"}
     ]
   end
 
