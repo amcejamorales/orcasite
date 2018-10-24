@@ -17,7 +17,12 @@ defmodule Orcasite.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:first_name, :last_name, :email, :role, :password_hash])
-    |> validate_required([:first_name, :last_name, :email, :role, :password_hash])
+    |> cast(attrs, [:first_name, :last_name, :email, :role, :password, :password_confirmation])
+    |> validate_required([:first_name, :last_name, :email, :role, :password, :password_confirmation])
+    |> validate_format(:email, ~r/@/)
+    |> validate_length(:password, min: 8, max: 30)
+    |> validate_nonconsecutive(:password)
+    |> validate_confirmation(:password)
+    |> unique_constraint(:email)
   end
 end
