@@ -2,13 +2,14 @@ defmodule Orcasite.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
-
   schema "users" do
-    field :email, :string, unique: true
-    field :first_name, :string
-    field :last_name, :string
-    field :password_hash, :string
-    field :role, :string
+    field(:email, :string, unique: true)
+    field(:first_name, :string)
+    field(:last_name, :string)
+    field(:password_hash, :string)
+    field(:password, :string, virtual: true)
+    field(:password_confirmation, :string, virtual: true)
+    field(:role, :string, default: "admin")
 
     timestamps()
   end
