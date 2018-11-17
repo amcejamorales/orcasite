@@ -3,6 +3,7 @@ defmodule OrcasiteWeb.Schema do
 
   import_types Absinthe.Type.Custom
   import_types OrcasiteWeb.Types.{JSON, Account, Feed, Detection}
+  import_types OrcasiteWeb.Types.Account
 
   alias OrcasiteWeb.Resolvers
 
@@ -27,6 +28,18 @@ defmodule OrcasiteWeb.Schema do
 
       resolve &Resolvers.Detection.submit/2
     end
+
+    @desc "Create a user"
+    field :create_user, type: :user do
+      arg :first_name, non_null(:string)
+      arg :last_name, non_null(:string)
+      arg :email, non_null(:string)
+      arg :role, non_null(:string)
+      arg :password, non_null(:string)
+
+      resolve &Resolvers.Accounts.create/2
+    end
+
   end
 
 end
