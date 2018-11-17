@@ -1,4 +1,6 @@
 defmodule Orcasite.Repo do
+  alias Orcasite.Repo
+
   use Ecto.Repo, otp_app: :orcasite
 
   @doc """

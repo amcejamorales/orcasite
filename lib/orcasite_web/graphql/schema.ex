@@ -35,6 +35,7 @@ defmodule OrcasiteWeb.Schema do
       arg(:email, non_null(:string))
       arg(:role, non_null(:string))
       arg(:password, non_null(:string))
+      arg(:password_confirmation, non_null(:string))
 
       resolve(&Resolvers.Accounts.create/2)
     end

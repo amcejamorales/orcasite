@@ -7,6 +7,9 @@ defmodule Orcasite.Accounts do
     }
   end
 
+  import Ecto.Query, warn: false
+  alias Orcasite.Repo
+  
   alias Orcasite.Accounts.User
 
   @doc """

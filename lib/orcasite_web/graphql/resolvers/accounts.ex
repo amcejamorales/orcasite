@@ -1,4 +1,6 @@
 defmodule OrcasiteWeb.Resolvers.Accounts do
+  alias Orcasite.Accounts
+
   def find_user(_parent, %{id: id}, _resolution) do
     case Orcasite.Accounts.find_user(id) do
       nil ->

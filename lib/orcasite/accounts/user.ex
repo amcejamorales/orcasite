@@ -1,6 +1,7 @@
 defmodule Orcasite.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Orcasite.Accounts.User
 
   schema "users" do
     field(:email, :string, unique: true)
