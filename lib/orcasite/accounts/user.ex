@@ -11,6 +11,7 @@ defmodule Orcasite.Accounts.User do
     field(:password, :string, virtual: true)
     field(:password_confirmation, :string, virtual: true)
     field(:role, :string, default: "admin")
+    field(:token, :string)
 
     timestamps()
   end

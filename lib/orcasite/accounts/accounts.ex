@@ -9,7 +9,7 @@ defmodule Orcasite.Accounts do
 
   import Ecto.Query, warn: false
   alias Orcasite.Repo
-  
+
   alias Orcasite.Accounts.User
 
   @doc """
@@ -105,4 +105,11 @@ defmodule Orcasite.Accounts do
   def change_user(%User{} = user) do
     User.changeset(user, %{})
   end
+
+  def store_token(%User{} = user, token) do
+    user
+    |> User.store_Token_changeset(%{token: token})
+    |> Repo.update()
+  end
+
 end

@@ -16,6 +16,15 @@ defmodule OrcasiteWeb.Schema do
 
       resolve(&Resolvers.Feed.show/2)
     end
+
+    @desc "Login"
+    field :login, type: :session do
+      arg(:email, non_null(:string))
+      arg(:password, non_null(:string))
+
+      resolve(&Resolvers.Accounts.login/2)
+    end
+
   end
 
   mutation do

@@ -24,6 +24,13 @@ config :logger, :console,
 
 config :orcasite, env: Mix.env()
 
+# configures Guardian
+config :orcasite, Orcasite.Guardian,
+  issuer: "Orcasite",
+  # generate secret key with
+  secret_key: Mix.env(),
+  serializer: Orcasite.Guardian
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
