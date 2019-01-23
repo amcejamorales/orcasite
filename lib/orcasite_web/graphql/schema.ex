@@ -2,7 +2,7 @@ defmodule OrcasiteWeb.Schema do
   use Absinthe.Schema
 
   import_types(Absinthe.Type.Custom)
-  import_types(OrcasiteWeb.Types.{JSON, Account, Feed, Detection})
+  import_types(OrcasiteWeb.Types.{JSON, Account, Feed, Detection, Session})
 
   alias OrcasiteWeb.Resolvers
 
@@ -16,15 +16,6 @@ defmodule OrcasiteWeb.Schema do
 
       resolve(&Resolvers.Feed.show/2)
     end
-
-    @desc "Login"
-    field :login, type: :session do
-      arg(:email, non_null(:string))
-      arg(:password, non_null(:string))
-
-      resolve(&Resolvers.Accounts.login/2)
-    end
-
   end
 
   mutation do
@@ -47,6 +38,14 @@ defmodule OrcasiteWeb.Schema do
       arg(:password_confirmation, non_null(:string))
 
       resolve(&Resolvers.Accounts.create/2)
+    end
+
+    @desc "Login"
+    field :login, type: :session do
+      arg(:email, non_null(:string))
+      arg(:password, non_null(:string))
+
+      resolve(&Resolvers.Accounts.login/2)
     end
   end
 end
